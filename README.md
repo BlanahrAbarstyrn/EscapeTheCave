@@ -15,6 +15,8 @@
 <h2>About Game</h2>
 <p>Escape The Cave is a cave-themed side scrolling platform game with parallax background. Battle slimes and bats to gather loot while looking for the exit!</p>
 <linebreak></linebreak>
+<img src="https://i.imgur.com/Ly3YMe7.jpeg">
+<linebreak></linebreak>
 <h2>Game Controls:</h2>
 <ul>
 <li>Move Left</li>
