@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnipbacalacyx"]
+
+[ext_resource type="Texture2D" uid="uid://dbogw6lqcyc6o" path="res://assets/explosion/enemy-death.png" id="1_8r5hw"]
+[ext_resource type="AudioStream" uid="uid://bf8nwhkwqdbvd" path="res://assets/sound/pickup3.ogg" id="2_ulddh"]
+
+[sub_resource type="Animation" id="Animation_jx0fw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rvrwa"]
+resource_name = "explode"
+length = 0.7
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreatureDieSoundEffect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_ulddh")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps6u7"]
+_data = {
+"RESET": SubResource("Animation_jx0fw"),
+"explode": SubResource("Animation_rvrwa")
+}
+
+[node name="CreatureDeath" type="Sprite2D"]
+texture = ExtResource("1_8r5hw")
+hframes = 6
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ps6u7")
+}
+autoplay = "explode"
+
+[node name="CreatureDieSoundEffect" type="AudioStreamPlayer2D" parent="."]

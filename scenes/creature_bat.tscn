@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://vxbepieodc1p"]
+
+[ext_resource type="PackedScene" uid="uid://046lalayywa8" path="res://scenes/creature_base.tscn" id="1_r4010"]
+[ext_resource type="Script" path="res://scripts/creature_bat.gd" id="2_41wa5"]
+[ext_resource type="Texture2D" uid="uid://d0u0y1ijqqtkb" path="res://assets/enemies/cave-bat.png" id="3_3tcsj"]
+[ext_resource type="PackedScene" uid="uid://d1qpbb8d43pxl" path="res://scenes/caster.tscn" id="3_ggbsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwmtq"]
+atlas = ExtResource("3_3tcsj")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r53jy"]
+atlas = ExtResource("3_3tcsj")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01n3e"]
+atlas = ExtResource("3_3tcsj")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22yfd"]
+atlas = ExtResource("3_3tcsj")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yik7b"]
+atlas = ExtResource("3_3tcsj")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w16gl"]
+atlas = ExtResource("3_3tcsj")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evxlp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwmtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r53jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01n3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22yfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yik7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w16gl")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsnvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dxir"]
+size = Vector2(2, 2)
+
+[node name="CreatureBat" instance=ExtResource("1_r4010")]
+collision_mask = 0
+script = ExtResource("2_41wa5")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_evxlp")
+animation = &"fly"
+frame = 5
+frame_progress = 0.190689
+
+[node name="CollisionHitBox" parent="CreatureHitBox" index="0"]
+shape = SubResource("CircleShape2D_fsnvu")
+
+[node name="CollisionEnvironment" parent="." index="3"]
+shape = SubResource("RectangleShape2D_4dxir")
+
+[node name="PivotTimer" type="Timer" parent="." index="4"]
+wait_time = 1.5
+
+[node name="DetectPlayer" type="RayCast2D" parent="." index="5"]
+target_position = Vector2(0, 300)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Caster" parent="." index="6" instance=ExtResource("3_ggbsr")]
+speed = 120.0
+life_span = 10.0
+projectile_key = 3
+cast_delay = 1.5
+
+[connection signal="timeout" from="PivotTimer" to="." method="_on_pivot_timer_timeout"]

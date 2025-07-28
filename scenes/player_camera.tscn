@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpow41s32n4r"]
+
+[ext_resource type="Script" path="res://scripts/player_camera.gd" id="1_tng0q"]
+
+[node name="PlayerCamera" type="Camera2D"]
+zoom = Vector2(2, 2)
+limit_bottom = 0
+script = ExtResource("1_tng0q")
+
+[node name="JiggleTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="JiggleTimer" to="." method="_on_jiggle_timer_timeout"]

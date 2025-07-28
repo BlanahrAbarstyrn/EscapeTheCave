@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsgbc5iqjupk4"]
+
+[ext_resource type="PackedScene" uid="uid://dge5n4v0qd0c7" path="res://scenes/projectile_base.tscn" id="1_nhcwt"]
+[ext_resource type="Texture2D" uid="uid://djn0qw6fgr0kk" path="res://assets/items/bullet2.png" id="2_4egj6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wxx5"]
+radius = 4.0
+
+[node name="ProjectileEnemy" instance=ExtResource("1_nhcwt")]
+collision_layer = 16
+collision_mask = 2
+
+[node name="ProjectileSprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4egj6")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_3wxx5")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdf88cag61q1n"]
+
+[ext_resource type="Script" path="res://scripts/projectile_creator.gd" id="1_wmuxr"]
+
+[node name="ProjectileCreator" type="Node2D"]
+script = ExtResource("1_wmuxr")

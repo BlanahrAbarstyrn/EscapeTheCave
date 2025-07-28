@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqm7521m711lg"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_e7qhj"]
+[ext_resource type="Texture2D" uid="uid://dln1m6utwpxf4" path="res://assets/2081990.jpg" id="1_t63qt"]
+[ext_resource type="FontFile" uid="uid://0n1lya0uls57" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_xsybw"]
+[ext_resource type="AudioStream" uid="uid://dm41e6f04pygv" path="res://assets/sound/Goblins_Den_(Regular).wav" id="3_uetj0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o3s51"]
+font = ExtResource("2_xsybw")
+font_size = 96
+font_color = Color(0.0666667, 0.501961, 0.611765, 0.705882)
+outline_size = 5
+shadow_size = 3
+shadow_color = Color(0, 0, 0.227451, 0.917647)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3t1y"]
+font = ExtResource("2_xsybw")
+font_size = 36
+font_color = Color(0.411765, 0.701961, 1, 0.662745)
+outline_size = 2
+outline_color = Color(0.215686, 0.117647, 0.443137, 1)
+shadow_size = 2
+shadow_color = Color(0.501961, 0.337255, 0.54902, 0.772549)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e7qhj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_t63qt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.105882, 0.74902)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.5
+offset_top = -32.0
+offset_right = 246.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Escape The Cave"
+label_settings = SubResource("LabelSettings_o3s51")
+
+[node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uetj0")
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 24
+
+[node name="GridContainer2" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+
+[node name="TopScoreLabel" type="Label" parent="MarginContainer/GridContainer2"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Top Scores"
+label_settings = SubResource("LabelSettings_g3t1y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainerScores" type="GridContainer" parent="MarginContainer/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 5

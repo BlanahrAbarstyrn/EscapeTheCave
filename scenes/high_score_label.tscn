@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://eeov3le0el8k"]
+
+[ext_resource type="FontFile" uid="uid://d1rvm0q2ebwfw" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="1_jevq3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q02vt"]
+font = ExtResource("1_jevq3")
+font_size = 36
+font_color = Color(0.0784314, 0.494118, 0.435294, 0.803922)
+
+[node name="HighScoreLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0000"
+label_settings = SubResource("LabelSettings_q02vt")
+horizontal_alignment = 1
+vertical_alignment = 1

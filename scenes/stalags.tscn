@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://qe5v8ybj5j7s"]
+
+[ext_resource type="Texture2D" uid="uid://brt4ghq58cgjm" path="res://assets/cave_terrain/Caves Terrain Spikes 16x16.png" id="1_xyhxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jppiw"]
+size = Vector2(48, 16)
+
+[node name="Stalags" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xyhxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jppiw")

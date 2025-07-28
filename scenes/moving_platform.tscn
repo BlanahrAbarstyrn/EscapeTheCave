@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3jcoadk8lw3x"]
+
+[ext_resource type="Texture2D" uid="uid://cyrjkr6sssnyx" path="res://assets/cave_terrain/Caves-Terrain-16x16.png" id="1_k2yf8"]
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_uo6i0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl3ok"]
+size = Vector2(48, 8)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_uo6i0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_k2yf8")
+region_enabled = true
+region_rect = Rect2(96, 96, 96, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dl3ok")
+one_way_collision = true

@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=3 uid="uid://cekh0vufg5sg7"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_787aj"]
+[ext_resource type="FontFile" uid="uid://0n1lya0uls57" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_e8lcx"]
+[ext_resource type="Texture2D" uid="uid://bsjsbi2gf5ev8" path="res://assets/items/pixel heart 2.png" id="2_x01ms"]
+[ext_resource type="LabelSettings" uid="uid://dbaddjlu0g5ff" path="res://tres/LuckyGuy_64.tres" id="3_8wh41"]
+[ext_resource type="LabelSettings" uid="uid://dkof7xlthd7fu" path="res://tres/gem_24.tres" id="4_bdaxc"]
+[ext_resource type="AudioStream" uid="uid://dspsp0v4jyuta" path="res://assets/sound/game_over.ogg" id="6_lfhrs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbvur"]
+font = ExtResource("1_e8lcx")
+font_size = 48
+outline_size = 2
+outline_color = Color(0.190762, 0.190762, 0.190762, 1)
+shadow_size = 2
+shadow_color = Color(0.101961, 0.0823529, 0.411765, 1)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_787aj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxScore" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxScore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00000"
+label_settings = SubResource("LabelSettings_jbvur")
+
+[node name="HBoxHearts" type="HBoxContainer" parent="MarginContainer/HBoxScore"]
+layout_mode = 2
+
+[node name="H1" type="TextureRect" parent="MarginContainer/HBoxScore/HBoxHearts"]
+layout_mode = 2
+texture = ExtResource("2_x01ms")
+stretch_mode = 2
+
+[node name="H2" type="TextureRect" parent="MarginContainer/HBoxScore/HBoxHearts"]
+layout_mode = 2
+texture = ExtResource("2_x01ms")
+stretch_mode = 2
+
+[node name="H3" type="TextureRect" parent="MarginContainer/HBoxScore/HBoxHearts"]
+layout_mode = 2
+texture = ExtResource("2_x01ms")
+stretch_mode = 2
+
+[node name="H4" type="TextureRect" parent="MarginContainer/HBoxScore/HBoxHearts"]
+layout_mode = 2
+texture = ExtResource("2_x01ms")
+stretch_mode = 2
+
+[node name="H5" type="TextureRect" parent="MarginContainer/HBoxScore/HBoxHearts"]
+layout_mode = 2
+texture = ExtResource("2_x01ms")
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.00392157, 0.0980392, 0.866667)
+
+[node name="VBoxLevelComplete" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxLevelComplete"]
+layout_mode = 2
+text = "LEVEL COMPLETE!"
+label_settings = ExtResource("3_8wh41")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxLevelComplete"]
+layout_mode = 2
+text = "Press Jump For Next Level"
+label_settings = ExtResource("4_bdaxc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxGameOver" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxGameOver"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = ExtResource("3_8wh41")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/VBoxGameOver"]
+layout_mode = 2
+text = "Press Jump For Main Menu"
+label_settings = ExtResource("4_bdaxc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HUDSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_lfhrs")
+
+[node name="ContinueTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="ContinueTimer" to="." method="_on_continue_timer_timeout"]

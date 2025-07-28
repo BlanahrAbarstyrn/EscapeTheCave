@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://vujk8vba0hya"]
+
+[ext_resource type="PackedScene" uid="uid://046lalayywa8" path="res://scenes/creature_base.tscn" id="1_i1ri3"]
+[ext_resource type="Script" path="res://scripts/creature_slime_j.gd" id="2_ubbmv"]
+[ext_resource type="Texture2D" uid="uid://cqafxm3xr0to" path="res://assets/enemies/creature-slime-j.png" id="3_vcdqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4uvu"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeuvt"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhkeh"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aofah"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(105, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1ys2"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(140, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maiaj"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(175, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olc5t"]
+atlas = ExtResource("3_vcdqs")
+region = Rect2(210, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7f0fl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4uvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeuvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhkeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aofah")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_x1ys2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maiaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olc5t")
+}],
+"loop": false,
+"name": &"leap",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wi77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14pe0"]
+size = Vector2(14, 10)
+
+[node name="CreatureSlimeJ" instance=ExtResource("1_i1ri3")]
+script = ExtResource("2_ubbmv")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_7f0fl")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionHitBox" parent="CreatureHitBox" index="0"]
+shape = SubResource("CircleShape2D_7wi77")
+
+[node name="CollisionEnvironment" parent="." index="3"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_14pe0")
+
+[node name="LeapTimer" type="Timer" parent="." index="4"]
+
+[connection signal="timeout" from="LeapTimer" to="." method="_on_leap_timer_timeout"]
