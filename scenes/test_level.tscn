@@ -1,22 +1,22 @@
 [gd_scene load_steps=17 format=4 uid="uid://hqsx5pgy8qyb"]
 
-[ext_resource type="Script" path="res://scripts/base.gd" id="1_b3c4x"]
-[ext_resource type="Texture2D" uid="uid://cyrjkr6sssnyx" path="res://assets/cave_terrain/Caves-Terrain-16x16.png" id="2_pd7qw"]
-[ext_resource type="PackedScene" uid="uid://detww6x4sfk1x" path="res://scenes/player.tscn" id="3_08vs3"]
-[ext_resource type="PackedScene" uid="uid://bdf88cag61q1n" path="res://scenes/projectile_creator.tscn" id="4_tiat2"]
-[ext_resource type="PackedScene" uid="uid://d3e6hxpc1oaxe" path="res://scenes/creature_slime_p.tscn" id="5_utb2t"]
-[ext_resource type="PackedScene" uid="uid://vujk8vba0hya" path="res://scenes/creature_slime_j.tscn" id="6_nskfh"]
-[ext_resource type="PackedScene" uid="uid://vxbepieodc1p" path="res://scenes/creature_bat.tscn" id="7_lr61x"]
-[ext_resource type="PackedScene" uid="uid://qe5v8ybj5j7s" path="res://scenes/stalags.tscn" id="8_ms17e"]
-[ext_resource type="PackedScene" uid="uid://cekh0vufg5sg7" path="res://scenes/hud.tscn" id="9_w052b"]
-[ext_resource type="PackedScene" uid="uid://d3jcoadk8lw3x" path="res://scenes/moving_platform.tscn" id="10_cqoec"]
-[ext_resource type="PackedScene" uid="uid://npvsma22o0yx" path="res://scenes/boss.tscn" id="11_teb4o"]
-[ext_resource type="PackedScene" uid="uid://dpxyips1q2gek" path="res://scenes/check_point.tscn" id="12_21do2"]
-[ext_resource type="PackedScene" uid="uid://dvtur6olav0qe" path="res://scenes/paralax_bg.tscn" id="13_yhj63"]
-[ext_resource type="AudioStream" uid="uid://cdea4fxqc1v1e" path="res://assets/sound/rolling-tune-cave.mp3" id="14_oji0n"]
+[ext_resource type="Script" path="res://scripts/base.gd" id="1_cc8ab"]
+[ext_resource type="Texture2D" uid="uid://cyrjkr6sssnyx" path="res://assets/cave_terrain/Caves-Terrain-16x16.png" id="2_q7lmw"]
+[ext_resource type="PackedScene" uid="uid://detww6x4sfk1x" path="res://scenes/player.tscn" id="3_pxs5v"]
+[ext_resource type="PackedScene" uid="uid://bdf88cag61q1n" path="res://scenes/projectile_creator.tscn" id="4_u4e1b"]
+[ext_resource type="PackedScene" uid="uid://d3e6hxpc1oaxe" path="res://scenes/creature_slime_p.tscn" id="5_0r20u"]
+[ext_resource type="PackedScene" uid="uid://vujk8vba0hya" path="res://scenes/creature_slime_j.tscn" id="6_yb8sq"]
+[ext_resource type="PackedScene" uid="uid://vxbepieodc1p" path="res://scenes/creature_bat.tscn" id="7_hwt20"]
+[ext_resource type="PackedScene" uid="uid://qe5v8ybj5j7s" path="res://scenes/stalags.tscn" id="8_6o7qj"]
+[ext_resource type="PackedScene" uid="uid://cekh0vufg5sg7" path="res://scenes/hud.tscn" id="9_rywrh"]
+[ext_resource type="PackedScene" uid="uid://d3jcoadk8lw3x" path="res://scenes/moving_platform.tscn" id="11_fc844"]
+[ext_resource type="PackedScene" uid="uid://npvsma22o0yx" path="res://scenes/boss.tscn" id="12_aqwfh"]
+[ext_resource type="PackedScene" uid="uid://dpxyips1q2gek" path="res://scenes/check_point.tscn" id="13_24qna"]
+[ext_resource type="PackedScene" uid="uid://dvtur6olav0qe" path="res://scenes/paralax_bg.tscn" id="14_3hyoa"]
+[ext_resource type="AudioStream" uid="uid://cdea4fxqc1v1e" path="res://assets/sound/rolling-tune-cave.mp3" id="14_wvatf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ogfb"]
-texture = ExtResource("2_pd7qw")
+texture = ExtResource("2_q7lmw")
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
@@ -514,8 +514,8 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_0ogfb")
 
-[node name="Level_3" type="Node2D"]
-script = ExtResource("1_b3c4x")
+[node name="test_level" type="Node2D"]
+script = ExtResource("1_cc8ab")
 
 [node name="BaseMap" type="Node2D" parent="."]
 
@@ -525,63 +525,63 @@ tile_map_data = PackedByteArray("AADg//j/AAAAAAkAAADg//n/AAACAAYAAADb//r/AAAAAAY
 tile_set = SubResource("TileSet_u7c5g")
 metadata/_edit_group_ = true
 
-[node name="Player" parent="." instance=ExtResource("3_08vs3")]
+[node name="Player" parent="." instance=ExtResource("3_pxs5v")]
 position = Vector2(-592, -32)
 
-[node name="ProjectileCreator" parent="." instance=ExtResource("4_tiat2")]
+[node name="ProjectileCreator" parent="." instance=ExtResource("4_u4e1b")]
 
 [node name="Creatures" type="Node2D" parent="."]
 
-[node name="CreatureSlimeP" parent="Creatures" instance=ExtResource("5_utb2t")]
+[node name="CreatureSlimeP" parent="Creatures" instance=ExtResource("5_0r20u")]
 position = Vector2(-496, -24)
 
-[node name="CreatureSlimeP2" parent="Creatures" instance=ExtResource("5_utb2t")]
+[node name="CreatureSlimeP2" parent="Creatures" instance=ExtResource("5_0r20u")]
 position = Vector2(-1080, -40)
 
-[node name="CreatureSlimeP3" parent="Creatures" instance=ExtResource("5_utb2t")]
+[node name="CreatureSlimeP3" parent="Creatures" instance=ExtResource("5_0r20u")]
 position = Vector2(-784, -200)
 
-[node name="CreatureSlimeP4" parent="Creatures" instance=ExtResource("5_utb2t")]
+[node name="CreatureSlimeP4" parent="Creatures" instance=ExtResource("5_0r20u")]
 position = Vector2(-520, -248)
 
-[node name="CreatureSlimeP5" parent="Creatures" instance=ExtResource("5_utb2t")]
+[node name="CreatureSlimeP5" parent="Creatures" instance=ExtResource("5_0r20u")]
 position = Vector2(-768, -104)
 
-[node name="CreatureSlimeP6" parent="Creatures" instance=ExtResource("5_utb2t")]
+[node name="CreatureSlimeP6" parent="Creatures" instance=ExtResource("5_0r20u")]
 position = Vector2(-1000, -296)
 
-[node name="CreatureSlimeJ" parent="Creatures" instance=ExtResource("6_nskfh")]
+[node name="CreatureSlimeJ" parent="Creatures" instance=ExtResource("6_yb8sq")]
 position = Vector2(-544, -104)
 
-[node name="CreatureSlimeJ2" parent="Creatures" instance=ExtResource("6_nskfh")]
+[node name="CreatureSlimeJ2" parent="Creatures" instance=ExtResource("6_yb8sq")]
 position = Vector2(-1032, -184)
 
-[node name="CreatureSlimeJ3" parent="Creatures" instance=ExtResource("6_nskfh")]
+[node name="CreatureSlimeJ3" parent="Creatures" instance=ExtResource("6_yb8sq")]
 position = Vector2(-784, -296)
 
-[node name="CreatureSlimeJ4" parent="Creatures" instance=ExtResource("6_nskfh")]
+[node name="CreatureSlimeJ4" parent="Creatures" instance=ExtResource("6_yb8sq")]
 position = Vector2(-480, -248)
 
-[node name="CreatureBat" parent="Creatures" instance=ExtResource("7_lr61x")]
+[node name="CreatureBat" parent="Creatures" instance=ExtResource("7_hwt20")]
 position = Vector2(-320, -216)
 
-[node name="CreatureBat2" parent="Creatures" instance=ExtResource("7_lr61x")]
+[node name="CreatureBat2" parent="Creatures" instance=ExtResource("7_hwt20")]
 position = Vector2(-1088, -336)
 
 [node name="Stalags" type="Node2D" parent="."]
 
-[node name="Stalags" parent="Stalags" instance=ExtResource("8_ms17e")]
+[node name="Stalags" parent="Stalags" instance=ExtResource("8_6o7qj")]
 position = Vector2(-320, -24)
 
-[node name="Stalags2" parent="Stalags" instance=ExtResource("8_ms17e")]
+[node name="Stalags2" parent="Stalags" instance=ExtResource("8_6o7qj")]
 position = Vector2(-424, -104)
 
-[node name="Stalags3" parent="Stalags" instance=ExtResource("8_ms17e")]
+[node name="Stalags3" parent="Stalags" instance=ExtResource("8_6o7qj")]
 position = Vector2(-888, -16)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource("9_w052b")]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("9_rywrh")]
 
 [node name="MovingPlatforms" type="Node2D" parent="."]
 position = Vector2(-8, -16)
@@ -589,53 +589,53 @@ position = Vector2(-8, -16)
 [node name="P1" type="Marker2D" parent="MovingPlatforms"]
 position = Vector2(-656, -224)
 
-[node name="MovingPlatform" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_cqoec")]
+[node name="MovingPlatform" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("11_fc844")]
 position = Vector2(-656, -32)
 destination = NodePath("../P1")
 
 [node name="P2" type="Marker2D" parent="MovingPlatforms"]
 position = Vector2(-704, -368)
 
-[node name="MovingPlatform2" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_cqoec")]
+[node name="MovingPlatform2" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("11_fc844")]
 position = Vector2(-704, -184)
 destination = NodePath("../P2")
 
 [node name="P3" type="Marker2D" parent="MovingPlatforms"]
 position = Vector2(-456, -296)
 
-[node name="MovingPlatform3" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_cqoec")]
+[node name="MovingPlatform3" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("11_fc844")]
 position = Vector2(-312, -296)
 destination = NodePath("../P3")
 
 [node name="P4" type="Marker2D" parent="MovingPlatforms"]
 position = Vector2(-504, -296)
 
-[node name="MovingPlatform4" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_cqoec")]
+[node name="MovingPlatform4" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("11_fc844")]
 position = Vector2(-624, -296)
 destination = NodePath("../P4")
 
 [node name="P5" type="Marker2D" parent="MovingPlatforms"]
 position = Vector2(-880, -320)
 
-[node name="MovingPlatform5" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_cqoec")]
+[node name="MovingPlatform5" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("11_fc844")]
 position = Vector2(-880, -8)
 destination = NodePath("../P5")
 
 [node name="P6" type="Marker2D" parent="MovingPlatforms"]
 position = Vector2(-1080, -240)
 
-[node name="MovingPlatform6" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_cqoec")]
+[node name="MovingPlatform6" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("11_fc844")]
 position = Vector2(-1080, -40)
 destination = NodePath("../P6")
 
-[node name="Boss" parent="." instance=ExtResource("11_teb4o")]
+[node name="Boss" parent="." instance=ExtResource("12_aqwfh")]
 position = Vector2(56, -16)
 
-[node name="CheckPoint" parent="." instance=ExtResource("12_21do2")]
+[node name="CheckPoint" parent="." instance=ExtResource("13_24qna")]
 position = Vector2(16, -16)
 
-[node name="ParalaxBg" parent="." instance=ExtResource("13_yhj63")]
+[node name="ParalaxBg" parent="." instance=ExtResource("14_3hyoa")]
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_oji0n")
+stream = ExtResource("14_wvatf")
 volume_db = 15.0

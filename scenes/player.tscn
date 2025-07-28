@@ -183,6 +183,7 @@ shape = SubResource("RectangleShape2D_y0ww8")
 [node name="PlayerCamera" parent="." instance=ExtResource("3_wq0i8")]
 
 [node name="Debugging" type="Label" parent="."]
+visible = false
 offset_left = -19.0
 offset_top = -49.0
 offset_right = 148.0

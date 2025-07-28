@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bqm7521m711lg"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_e7qhj"]
-[ext_resource type="Texture2D" uid="uid://dln1m6utwpxf4" path="res://assets/2081990.jpg" id="1_t63qt"]
+[ext_resource type="Texture2D" uid="uid://t7v18qwdt8b6" path="res://assets/ui-background/Splash Art (2).png" id="2_6unb8"]
 [ext_resource type="FontFile" uid="uid://0n1lya0uls57" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_xsybw"]
 [ext_resource type="LabelSettings" uid="uid://c57087kb6t0iv" path="res://assets/LG_white_48.tres" id="4_e1opi"]
 [ext_resource type="AudioStream" uid="uid://cdea4fxqc1v1e" path="res://assets/sound/rolling-tune-cave.mp3" id="5_6oe1i"]
@@ -35,9 +35,10 @@ script = ExtResource("1_e7qhj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("1_t63qt")
+offset_right = 1025.0
+offset_bottom = 601.0
+texture = ExtResource("2_6unb8")
+stretch_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -46,7 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0117647, 0.0117647, 0.105882, 0.74902)
+color = Color(0, 0, 0, 0)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

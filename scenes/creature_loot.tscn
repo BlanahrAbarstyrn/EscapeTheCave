@@ -187,7 +187,7 @@ frame_progress = 0.893327
 shape = SubResource("CircleShape2D_nqnid")
 
 [node name="GatherTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 

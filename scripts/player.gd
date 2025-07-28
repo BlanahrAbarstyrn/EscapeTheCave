@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 	determine_actions()
-	update_debugging()
+#	update_debugging()
 	
 	if Input.is_action_just_pressed("cast"):
 		cast()
@@ -71,12 +71,12 @@ func player_off_screen() -> void:
 	lose_life(_lives)
 
 # temporary label on player for debugging purposes <<< remove prior to shipping game
-func update_debugging() -> void:
-	debugging.text = "floor:%s inv:%s\n%s\n%.0f,%.0f\n%d" % [
-		is_on_floor(), _impervious,
-		PlayerAction.keys()[_action],
-		velocity.x, velocity.y, _lives
-	]
+#func update_debugging() -> void:
+#	debugging.text = "floor:%s inv:%s\n%s\n%.0f,%.0f\n%d" % [
+#		is_on_floor(), _impervious,
+#		PlayerAction.keys()[_action],
+#		velocity.x, velocity.y, _lives
+#	]
 
 
 func cast() -> void:
