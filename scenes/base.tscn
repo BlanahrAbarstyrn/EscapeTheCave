@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://npvsma22o0yx" path="res://scenes/boss.tscn" id="7_st6qx"]
 [ext_resource type="PackedScene" uid="uid://cekh0vufg5sg7" path="res://scenes/hud.tscn" id="8_1l6a7"]
 [ext_resource type="PackedScene" uid="uid://dpxyips1q2gek" path="res://scenes/check_point.tscn" id="8_axfyk"]
-[ext_resource type="AudioStream" uid="uid://dv87ewn520uxg" path="res://assets/sound/Flowing Rocks.ogg" id="9_cve6w"]
 [ext_resource type="PackedScene" uid="uid://dvtur6olav0qe" path="res://scenes/paralax_bg.tscn" id="9_vo463"]
+[ext_resource type="AudioStream" uid="uid://cdea4fxqc1v1e" path="res://assets/sound/rolling-tune-cave.mp3" id="9_yaq08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ogfb"]
 texture = ExtResource("1_7if2v")
@@ -541,5 +541,5 @@ position = Vector2(32, -32)
 [node name="ParalaxBg" parent="." instance=ExtResource("9_vo463")]
 
 [node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_cve6w")
-autoplay = true
+stream = ExtResource("9_yaq08")
+volume_db = 15.0

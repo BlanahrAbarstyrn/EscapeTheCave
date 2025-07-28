@@ -49,6 +49,7 @@ func get_sprite(t: Texture2D) -> Sprite2D:
 	var sprite = Sprite2D.new()
 	sprite.texture = t
 	sprite.scale = sprite_scale
+	sprite.offset = Vector2(0, 150)
 	return sprite
 	
 

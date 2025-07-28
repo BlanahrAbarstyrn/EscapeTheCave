@@ -22,3 +22,5 @@ signal on_game_over
 signal on_player_injured(lives: int)
 signal on_initiate_level(lives: int)
 signal on_level_complete
+
+signal on_trigger_entered

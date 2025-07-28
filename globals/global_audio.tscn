@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx70ls1fw64v0"]
+
+[ext_resource type="AudioStream" uid="uid://cdea4fxqc1v1e" path="res://assets/sound/rolling-tune-cave.mp3" id="1_g6mws"]
+
+[node name="GlobalAudio" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_g6mws")
+volume_db = 15.0
+autoplay = true

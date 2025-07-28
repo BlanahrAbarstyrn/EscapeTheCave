@@ -21,6 +21,7 @@ SoundManager="*res://globals/sound_manager.gd"
 SignalManager="*res://globals/signal_manager.gd"
 ScoreManager="*res://globals/score_manager.gd"
 GameManager="*res://globals/game_manager.gd"
+GlobalAudio="*res://globals/global_audio.tscn"
 
 [display]
 

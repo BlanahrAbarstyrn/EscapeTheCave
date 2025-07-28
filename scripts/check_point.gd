@@ -11,7 +11,15 @@ const TRIPPED_CONDITION: String = "parameters/conditions/on_tripped"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalManager.on_boss_dead.connect(on_boss_dead)
+	#SignalManager.on_boss_dead.connect(on_boss_dead)
+	SignalManager.on_trigger_entered.connect(on_trigger_entered)
+
+
+func on_trigger_entered() -> void:
+	cp_sprite_2d.show()
+	cp_animation_tree[TRIPPED_CONDITION] = true
+	monitoring = true
+	SoundManager.play_clip(level_complete, SoundManager.SOUND_CHECKPOINT)
 
 
 func on_boss_dead(_p: int) -> void:

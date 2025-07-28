@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqm7521m711lg"]
+[gd_scene load_steps=8 format=3 uid="uid://bqm7521m711lg"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_e7qhj"]
 [ext_resource type="Texture2D" uid="uid://dln1m6utwpxf4" path="res://assets/2081990.jpg" id="1_t63qt"]
 [ext_resource type="FontFile" uid="uid://0n1lya0uls57" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_xsybw"]
-[ext_resource type="AudioStream" uid="uid://dm41e6f04pygv" path="res://assets/sound/Goblins_Den_(Regular).wav" id="3_uetj0"]
+[ext_resource type="LabelSettings" uid="uid://c57087kb6t0iv" path="res://assets/LG_white_48.tres" id="4_e1opi"]
+[ext_resource type="AudioStream" uid="uid://cdea4fxqc1v1e" path="res://assets/sound/rolling-tune-cave.mp3" id="5_6oe1i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o3s51"]
 font = ExtResource("2_xsybw")
@@ -34,8 +35,8 @@ script = ExtResource("1_e7qhj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = ExtResource("1_t63qt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -54,18 +55,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -246.5
-offset_top = -32.0
-offset_right = 246.5
-offset_bottom = 32.0
+offset_left = -370.0
+offset_top = -48.5
+offset_right = 370.0
+offset_bottom = 48.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Escape The Cave"
 label_settings = SubResource("LabelSettings_o3s51")
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 24
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer2/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Jump to Play"
+label_settings = ExtResource("4_e1opi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer3" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+
 [node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_uetj0")
-autoplay = true
+stream = ExtResource("5_6oe1i")
+volume_db = 15.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

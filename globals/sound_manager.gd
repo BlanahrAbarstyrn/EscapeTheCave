@@ -21,7 +21,7 @@ var SOUNDS: Dictionary = {
 	SOUND_CHECKPOINT: preload("res://assets/sound/checkpoint.wav"),
 	SOUND_DAMAGE: preload("res://assets/sound/damage.wav"),
 	SOUND_KILL: preload("res://assets/sound/pickup5.ogg"),
-	SOUND_GAMEOVER: preload("res://assets/sound/game_over.ogg"),
+	SOUND_GAMEOVER: preload("res://assets/sound/cave-fail.mp3"),
 	SOUND_IMPACT: preload("res://assets/sound/impact.wav"),
 	SOUND_JUMP: preload("res://assets/sound/jump.wav"),
 	SOUND_LAND: preload("res://assets/sound/land.wav"),
@@ -30,7 +30,7 @@ var SOUNDS: Dictionary = {
 	SOUND_MUSIC2: preload("res://assets/sound/Flowing Rocks.ogg"),
 	SOUND_PICKUP: preload("res://assets/sound/pickup5.ogg"),
 	SOUND_BOSS_ARRIVE: preload("res://assets/sound/boss_arrive.wav"),
-	SOUND_WIN: preload("res://assets/sound/you_win.ogg")
+	SOUND_WIN: preload("res://assets/sound/cave-victory.mp3")
 }
 
 

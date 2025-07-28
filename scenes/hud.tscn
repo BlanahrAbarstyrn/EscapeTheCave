@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bsjsbi2gf5ev8" path="res://assets/items/pixel heart 2.png" id="2_x01ms"]
 [ext_resource type="LabelSettings" uid="uid://dbaddjlu0g5ff" path="res://tres/LuckyGuy_64.tres" id="3_8wh41"]
 [ext_resource type="LabelSettings" uid="uid://dkof7xlthd7fu" path="res://tres/gem_24.tres" id="4_bdaxc"]
-[ext_resource type="AudioStream" uid="uid://dspsp0v4jyuta" path="res://assets/sound/game_over.ogg" id="6_lfhrs"]
+[ext_resource type="AudioStream" uid="uid://c50rh3c7m57b5" path="res://assets/sound/cave-fail.mp3" id="6_hj8h1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jbvur"]
 font = ExtResource("1_e8lcx")
@@ -135,10 +135,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HUDSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_lfhrs")
+stream = ExtResource("6_hj8h1")
+volume_db = 15.0
 
 [node name="ContinueTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="ContinueTimer" to="." method="_on_continue_timer_timeout"]

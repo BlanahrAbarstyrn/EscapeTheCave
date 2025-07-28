@@ -187,12 +187,14 @@ shape = SubResource("RectangleShape2D_lxcyg")
 
 [node name="BossSprite2D" type="Sprite2D" parent="Visual"]
 self_modulate = Color(1, 1, 1, 0)
+light_mask = 0
+visibility_layer = 0
 position = Vector2(0, -38)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_d00lj")
 
 [node name="BossHitBox" type="Area2D" parent="Visual"]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 8
 monitoring = false
 

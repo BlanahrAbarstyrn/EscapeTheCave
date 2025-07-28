@@ -3,8 +3,8 @@ extends Node2D
 
 const TRIGGER_CONDITION: String = "parameters/conditions/on_trigger"
 
-@export var boss_lives: int = 1
-@export var boss_points: int = 5
+@export var boss_lives: int = 0
+@export var boss_points: int = 0
 
 
 
@@ -45,8 +45,9 @@ func boss_damage() -> void:
 
 
 func _on_boss_trigger_area_entered(_area: Area2D) -> void:
-	boss_animation_tree[TRIGGER_CONDITION] = true
-	boss_hit_box.monitoring = true
+	SignalManager.on_trigger_entered.emit()
+	#boss_animation_tree[TRIGGER_CONDITION] = true
+	#boss_hit_box.monitoring = true
 
 
 func _on_boss_hit_box_area_entered(_area: Area2D) -> void:
